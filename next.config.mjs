@@ -6,6 +6,18 @@ const nextConfig = {
         protocol: "https",
         hostname: "img.clerk.com",
       },
+      {
+        protocol: "https",
+        hostname: "*.cdninstagram.com",
+      },
+      {
+        protocol: "https",
+        hostname: "scontent-*.cdninstagram.com",
+      },
+      {
+        protocol: "https",
+        hostname: "instagram.com",
+      },
     ],
   },
 };
