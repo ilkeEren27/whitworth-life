@@ -15,19 +15,180 @@ import { useSearchParams } from "next/navigation";
 
 const MAP_CENTER = { lat: 47.7531493070487, lng: -117.41635063409184 };
 const DEFAULT_ZOOM = 17;
-const mapOptions = {
-  disableDefaultUI: false,
-  clickableIcons: false,
-  gestureHandling: "greedy",
-  fullscreenControl: false,
-  styles: [
-    {
-      featureType: "poi",
-      elementType: "labels.icon",
-      stylers: [{ visibility: "off" }],
-    },
-  ],
-};
+
+// Light mode map styles matching warm palette (#e7d7c1 background, #2d1b1a text)
+const lightMapStyles = [
+  { elementType: "geometry", stylers: [{ color: "#f5ede4" }] },
+  { elementType: "labels.text.stroke", stylers: [{ color: "#ffffff" }] },
+  { elementType: "labels.text.fill", stylers: [{ color: "#2d1b1a" }] },
+  {
+    featureType: "administrative.locality",
+    elementType: "labels.text.fill",
+    stylers: [{ color: "#2d1b1a" }],
+  },
+  {
+    featureType: "poi",
+    elementType: "labels.icon",
+    stylers: [{ visibility: "off" }],
+  },
+  {
+    featureType: "poi",
+    elementType: "labels.text.fill",
+    stylers: [{ color: "#5a4a45" }],
+  },
+  {
+    featureType: "poi.park",
+    elementType: "geometry",
+    stylers: [{ color: "#e7d7c1" }],
+  },
+  {
+    featureType: "poi.park",
+    elementType: "labels.text.fill",
+    stylers: [{ color: "#735751" }],
+  },
+  {
+    featureType: "road",
+    elementType: "geometry",
+    stylers: [{ color: "#ffffff" }],
+  },
+  {
+    featureType: "road",
+    elementType: "geometry.stroke",
+    stylers: [{ color: "#c4b5a8" }],
+  },
+  {
+    featureType: "road",
+    elementType: "labels.text.fill",
+    stylers: [{ color: "#2d1b1a" }],
+  },
+  {
+    featureType: "road.highway",
+    elementType: "geometry",
+    stylers: [{ color: "#f5ede4" }],
+  },
+  {
+    featureType: "road.highway",
+    elementType: "geometry.stroke",
+    stylers: [{ color: "#a78a7f" }],
+  },
+  {
+    featureType: "road.highway",
+    elementType: "labels.text.fill",
+    stylers: [{ color: "#2d1b1a" }],
+  },
+  {
+    featureType: "transit",
+    elementType: "geometry",
+    stylers: [{ color: "#e7d7c1" }],
+  },
+  {
+    featureType: "transit.station",
+    elementType: "labels.text.fill",
+    stylers: [{ color: "#5a4a45" }],
+  },
+  {
+    featureType: "water",
+    elementType: "geometry",
+    stylers: [{ color: "#d4a574" }],
+  },
+  {
+    featureType: "water",
+    elementType: "labels.text.fill",
+    stylers: [{ color: "#735751" }],
+  },
+  {
+    featureType: "water",
+    elementType: "labels.text.stroke",
+    stylers: [{ color: "#f5ede4" }],
+  },
+];
+
+// Dark mode map styles matching warm palette (#2d1b1a background, #e7d7c1 text)
+const darkMapStyles = [
+  { elementType: "geometry", stylers: [{ color: "#2d1b1a" }] },
+  { elementType: "labels.text.stroke", stylers: [{ color: "#2d1b1a" }] },
+  { elementType: "labels.text.fill", stylers: [{ color: "#e7d7c1" }] },
+  {
+    featureType: "administrative.locality",
+    elementType: "labels.text.fill",
+    stylers: [{ color: "#e7d7c1" }],
+  },
+  {
+    featureType: "poi",
+    elementType: "labels.icon",
+    stylers: [{ visibility: "off" }],
+  },
+  {
+    featureType: "poi",
+    elementType: "labels.text.fill",
+    stylers: [{ color: "#c4b5a8" }],
+  },
+  {
+    featureType: "poi.park",
+    elementType: "geometry",
+    stylers: [{ color: "#3a2826" }],
+  },
+  {
+    featureType: "poi.park",
+    elementType: "labels.text.fill",
+    stylers: [{ color: "#a78a7f" }],
+  },
+  {
+    featureType: "road",
+    elementType: "geometry",
+    stylers: [{ color: "#3a2826" }],
+  },
+  {
+    featureType: "road",
+    elementType: "geometry.stroke",
+    stylers: [{ color: "#5a4a45" }],
+  },
+  {
+    featureType: "road",
+    elementType: "labels.text.fill",
+    stylers: [{ color: "#e7d7c1" }],
+  },
+  {
+    featureType: "road.highway",
+    elementType: "geometry",
+    stylers: [{ color: "#5a4a45" }],
+  },
+  {
+    featureType: "road.highway",
+    elementType: "geometry.stroke",
+    stylers: [{ color: "#735751" }],
+  },
+  {
+    featureType: "road.highway",
+    elementType: "labels.text.fill",
+    stylers: [{ color: "#e7d7c1" }],
+  },
+  {
+    featureType: "transit",
+    elementType: "geometry",
+    stylers: [{ color: "#3a2826" }],
+  },
+  {
+    featureType: "transit.station",
+    elementType: "labels.text.fill",
+    stylers: [{ color: "#c4b5a8" }],
+  },
+  {
+    featureType: "water",
+    elementType: "geometry",
+    stylers: [{ color: "#1a1413" }],
+  },
+  {
+    featureType: "water",
+    elementType: "labels.text.fill",
+    stylers: [{ color: "#8a6f64" }],
+  },
+  {
+    featureType: "water",
+    elementType: "labels.text.stroke",
+    stylers: [{ color: "#2d1b1a" }],
+  },
+];
 
 export default function CampusMap() {
   const [selectedCats, setSelectedCats] = useState(new Set(categories));
@@ -35,6 +196,7 @@ export default function CampusMap() {
   const [activeId, setActiveId] = useState(null);
   const [zoom, setZoom] = useState(DEFAULT_ZOOM);
   const [mapInstance, setMapInstance] = useState(null);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   // 👇 new: user position + accuracy
   const [userPos, setUserPos] = useState(null);
@@ -45,6 +207,25 @@ export default function CampusMap() {
     const id = searchParams?.get("id");
     if (id) setActiveId(id);
   }, [searchParams]);
+
+  // Detect dark mode and listen for changes
+  useEffect(() => {
+    const checkDarkMode = () => {
+      setIsDarkMode(document.documentElement.classList.contains("dark"));
+    };
+
+    // Check initial state
+    checkDarkMode();
+
+    // Watch for changes using MutationObserver
+    const observer = new MutationObserver(checkDarkMode);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   // get user location once on mount
   useEffect(() => {
@@ -101,6 +282,25 @@ export default function CampusMap() {
     }
   };
 
+  // Create dynamic map options based on dark mode
+  const mapOptions = useMemo(
+    () => ({
+      disableDefaultUI: false,
+      clickableIcons: false,
+      gestureHandling: "greedy",
+      fullscreenControl: false,
+      styles: isDarkMode ? darkMapStyles : lightMapStyles,
+    }),
+    [isDarkMode]
+  );
+
+  // Update map styles when dark mode changes
+  useEffect(() => {
+    if (mapInstance) {
+      mapInstance.setOptions({ styles: isDarkMode ? darkMapStyles : lightMapStyles });
+    }
+  }, [isDarkMode, mapInstance]);
+
   return (
     <div className="w-full h-[calc(100dvh-72px)] grid grid-rows-[auto_auto_1fr] sm:rounded-xl overflow-hidden bg-background sm:shadow-lg">
       {/* Filter chips */}
@@ -114,8 +314,8 @@ export default function CampusMap() {
               className={`px-2.5 py-1 rounded-2xl border text-xs sm:text-sm transition
                 ${
                   on
-                    ? "bg-primary text-white border-black"
-                    : "bg-white text-primary hover:text-white border-gray-300"
+                    ? "bg-primary text-primary-foreground border-primary dark:border-primary"
+                    : "bg-card text-foreground hover:bg-accent hover:text-accent-foreground border-border dark:bg-card dark:text-foreground dark:border-border"
                 }`}
               title={c}
             >
@@ -125,13 +325,13 @@ export default function CampusMap() {
         })}
         <Button
           onClick={() => setSelectedCats(new Set(categories))}
-          className="ml-auto px-2.5 py-1 rounded-2xl border text-xs sm:text-sm"
+          className="ml-auto px-2.5 py-1 rounded-2xl border text-xs sm:text-sm bg-card text-foreground hover:bg-accent hover:text-accent-foreground border-border dark:bg-card dark:text-foreground dark:border-border"
         >
           All
         </Button>
         <Button
           onClick={() => setSelectedCats(new Set())}
-          className="px-2.5 py-1 rounded-2xl border text-xs sm:text-sm"
+          className="px-2.5 py-1 rounded-2xl border text-xs sm:text-sm bg-card text-foreground hover:bg-accent hover:text-accent-foreground border-border dark:bg-card dark:text-foreground dark:border-border"
         >
           None
         </Button>
@@ -139,24 +339,24 @@ export default function CampusMap() {
 
       {/* ANY / ALL logic toggle */}
       <div className="px-2 sm:px-3 py-2 flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3">
-        <span className="text-xs sm:text-sm text-gray-600">Filter logic:</span>
+        <span className="text-xs sm:text-sm text-muted-foreground">Filter logic:</span>
         <div className="flex gap-2">
           <Button
             onClick={() => setLogic("ANY")}
-            className={`px-2.5 py-1 rounded-2xl border text-xs sm:text-sm ${
+            className={`px-2.5 py-1 rounded-2xl border text-xs sm:text-sm transition ${
               logic === "ANY"
-                ? "text-white  border-black"
-                : "bg-white text-primary hover:text-white"
+                ? "bg-primary text-primary-foreground border-primary dark:border-primary"
+                : "bg-card text-foreground hover:bg-accent hover:text-accent-foreground border-border dark:bg-card dark:text-foreground dark:border-border"
             }`}
           >
             Any (Match at least one)
           </Button>
           <Button
             onClick={() => setLogic("ALL")}
-            className={`px-2.5 py-1 rounded-2xl border text-xs sm:text-sm ${
+            className={`px-2.5 py-1 rounded-2xl border text-xs sm:text-sm transition ${
               logic === "ALL"
-                ? "text-white border-black"
-                : "bg-white text-primary hover:text-white"
+                ? "bg-primary text-primary-foreground border-primary dark:border-primary"
+                : "bg-card text-foreground hover:bg-accent hover:text-accent-foreground border-border dark:bg-card dark:text-foreground dark:border-border"
             }`}
           >
             All (Must match all)
@@ -197,24 +397,20 @@ export default function CampusMap() {
                 onCloseClick={() => setActiveId(null)}
                 options={{ pixelOffset: new google.maps.Size(0, -8) }}
               >
-                <div className="space-y-2">
-                  <div className="font-bold">{p.name}</div>
+                <div className="space-y-2 text-foreground">
+                  <div className="font-bold text-card-foreground">{p.name}</div>
                   <div className="flex gap-2 flex-wrap">
                     {p.categories.map((c) => (
                       <span
                         key={c}
-                        className="rounded-md p-1 text-xs border"
-                        style={{
-                          borderColor: "#e5e7eb",
-                          background: "#f8fafc",
-                        }}
+                        className="rounded-md p-1 text-xs border border-border bg-card text-card-foreground dark:border-border dark:bg-card dark:text-card-foreground"
                       >
                         {c}
                       </span>
                     ))}
                   </div>
                   {p.desc && (
-                    <div className="text-sm text-foreground font-normal">
+                    <div className="text-sm text-card-foreground font-normal">
                       {p.desc}
                     </div>
                   )}
@@ -231,9 +427,9 @@ export default function CampusMap() {
                 icon={{
                   path: google.maps.SymbolPath.CIRCLE,
                   scale: 7,
-                  fillColor: "#4285F4",
+                  fillColor: isDarkMode ? "#d96b6a" : "#bf4342", // Primary color - theme aware
                   fillOpacity: 1,
-                  strokeColor: "white",
+                  strokeColor: isDarkMode ? "#2d1b1a" : "#ffffff",
                   strokeWeight: 2,
                 }}
               />
@@ -241,9 +437,9 @@ export default function CampusMap() {
                 center={userPos}
                 radius={15}
                 options={{
-                  fillColor: "#4285F4",
+                  fillColor: isDarkMode ? "#d96b6a" : "#bf4342", // Primary color - theme aware
                   fillOpacity: 0.15,
-                  strokeColor: "#4285F4",
+                  strokeColor: isDarkMode ? "#d96b6a" : "#bf4342",
                   strokeOpacity: 0.4,
                   strokeWeight: 1,
                   clickable: false,

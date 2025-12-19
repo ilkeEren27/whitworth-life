@@ -9,13 +9,13 @@ export const categories = [
 ];
 
 export const colors = {
-  "Food & Drink": "#ef4444",
-  Faculty: "#8b5cf6",
-  Study: "#6a040f",
-  Athletics: "#f59e0b",
-  Residence: "#0ea5e9",
-  Health: "#ffa5ab",
-  Admin: "#22c55e",
+  "Food & Drink": "#bf4342", // Primary color - warm red
+  Faculty: "#a78a7f", // Secondary color - warm brown
+  Study: "#d4a574", // Accent color - warm gold
+  Athletics: "#e8b886", // Accent color (dark mode variant) - warm orange
+  Residence: "#735751", // Chart-5 color - warm dark brown
+  Health: "#d96b6a", // Primary color (dark mode) - lighter warm red
+  Admin: "#8c1c13", // Destructive color - deep warm red
 };
 
 export const places = [

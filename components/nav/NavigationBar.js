@@ -84,10 +84,10 @@ export default async function NavigationBar() {
       </header>
       {/* Mobile Navigation Bar */}
       <header className="flex md:hidden my-3 justify-between mx-4 px-4 py-3 rounded-xl bg-card/80 backdrop-blur-sm border shadow-sm">
-        <div>
+        <div className="flex items-center gap-3">
           <DropdownMenu>
-            <DropdownMenuTrigger>
-              <Menu className="mx-auto mt-2 transition-transform duration-200 hover:scale-110" />
+            <DropdownMenuTrigger className="h-9 w-9 flex items-center justify-center transition-transform duration-200 hover:scale-110">
+              <Menu className="h-5 w-5" />
             </DropdownMenuTrigger>
             <DropdownMenuContent className="bg-card border shadow-lg rounded-lg">
               <DropdownMenuLabel>
@@ -128,6 +128,7 @@ export default async function NavigationBar() {
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
+          <ThemeToggle />
         </div>
         <div className="flex gap-2 items-center">
           <Link href="/" className="transition-opacity duration-200 hover:opacity-80">
