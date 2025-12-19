@@ -14,7 +14,7 @@ export default function MapPage() {
   if (!isLoaded) return <div className="p-6">Loading map…</div>;
 
   return (
-    <main>
+    <main className="animate-fade-in">
       <CampusMap />
     </main>
   );

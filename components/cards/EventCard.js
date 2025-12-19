@@ -25,37 +25,39 @@ export default function EventCard({
   organizerRole,
 }) {
   return (
-    <Card>
+    <Card className="animate-fade-in">
       <CardHeader>
         <CardTitle>
-          <p className="font-bold">{title}</p>
+          <p className="font-bold text-xl">{title}</p>
         </CardTitle>
-        <CardDescription>{description}</CardDescription>
+        <CardDescription className="text-base">{description}</CardDescription>
         <CardAction>
           <Link href={`/map?id=${locationId}`}>
             <Button>Show Location</Button>
           </Link>
         </CardAction>
       </CardHeader>
-      <CardContent>
+      <CardContent className="space-y-4">
         {image ? (
-          <Image
-            alt="Event Photo"
-            src={image}
-            className="self-center"
-            width="100"
-            height="100"
-          />
+          <div className="flex justify-center">
+            <Image
+              alt="Event Photo"
+              src={image}
+              className="self-center rounded-lg shadow-md transition-transform duration-200 hover:scale-105"
+              width="100"
+              height="100"
+            />
+          </div>
         ) : null}
-        <p>Event will be hosted in {location}</p>
+        <p className="text-muted-foreground">Event will be hosted in <span className="font-medium text-foreground">{location}</span></p>
         {organizer && (
-          <p className="text-sm text-gray-600 mt-2">
-            Posted by {organizer} <Badge>{organizerRole}</Badge>
+          <p className="text-sm text-muted-foreground mt-2 flex items-center gap-2">
+            Posted by <span className="font-medium text-foreground">{organizer}</span> <Badge variant="secondary">{organizerRole}</Badge>
           </p>
         )}
       </CardContent>
       <CardFooter>
-        <p className="font-semibold">{date}</p>
+        <p className="font-semibold text-primary">{date}</p>
       </CardFooter>
     </Card>
   );

@@ -27,7 +27,7 @@ export default async function NavigationBar() {
   return (
     <div>
       {/* Desktop Navigation Bar */}
-      <header className="hidden md:flex justify-between items-center my-2 mx-4">
+      <header className="hidden md:flex justify-between items-center my-3 mx-4 px-6 py-3 rounded-xl bg-card/80 backdrop-blur-sm border shadow-sm transition-all duration-200">
         {/* Left: Logo and Title */}
         <div className="flex items-center gap-4 flex-1 min-w-0">
           <Image
@@ -35,9 +35,10 @@ export default async function NavigationBar() {
             src="/whitworth.png"
             width="32"
             height="32"
+            className="transition-transform duration-200 hover:scale-110"
           />
-          <Link href="/">
-            <h1 className="font-normal text-2xl whitespace-nowrap">
+          <Link href="/" className="transition-opacity duration-200 hover:opacity-80">
+            <h1 className="font-semibold text-2xl whitespace-nowrap bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               Whitworth Life
             </h1>
           </Link>
@@ -45,23 +46,23 @@ export default async function NavigationBar() {
         {/* Middle: Navigation Buttons */}
         <div className="flex justify-center gap-2 flex-none">
           <Link href="/map">
-            <Button className="w-16 h-8" variant="ghost">
+            <Button className="w-20 h-9" variant="ghost">
               Map
             </Button>
           </Link>
           <Link href="/events">
-            <Button className="w-16 h-8" variant="ghost">
+            <Button className="w-20 h-9" variant="ghost">
               Events
             </Button>
           </Link>
           <Link href="/social">
-            <Button className="w-16 h-8" variant="ghost">
+            <Button className="w-20 h-9" variant="ghost">
               Social
             </Button>
           </Link>
         </div>
         {/* Right: Auth Buttons */}
-        <div className="flex gap-4 flex-1 min-w-0 justify-end">
+        <div className="flex gap-3 flex-1 min-w-0 justify-end">
           <ThemeToggle />
           <SignedOut>
             <SignUpButton>
@@ -82,13 +83,13 @@ export default async function NavigationBar() {
         </div>
       </header>
       {/* Mobile Navigation Bar */}
-      <header className="flex md:hidden my-2 justify-between mx-4">
+      <header className="flex md:hidden my-3 justify-between mx-4 px-4 py-3 rounded-xl bg-card/80 backdrop-blur-sm border shadow-sm">
         <div>
           <DropdownMenu>
             <DropdownMenuTrigger>
-              <Menu className="mx-auto mt-2" />
+              <Menu className="mx-auto mt-2 transition-transform duration-200 hover:scale-110" />
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="bg-background">
+            <DropdownMenuContent className="bg-card border shadow-lg rounded-lg">
               <DropdownMenuLabel>
                 <p className="font-bold">User</p>
               </DropdownMenuLabel>
@@ -128,15 +129,16 @@ export default async function NavigationBar() {
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
-        <div className="flex gap-2">
-          <Link href="/">
-            <h1 className="font-light text-2xl">Whitworth Life</h1>
+        <div className="flex gap-2 items-center">
+          <Link href="/" className="transition-opacity duration-200 hover:opacity-80">
+            <h1 className="font-semibold text-2xl bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Whitworth Life</h1>
           </Link>
           <Image
             alt="Whitworth Logo"
             src="/whitworth.png"
             width="32"
             height="32"
+            className="transition-transform duration-200 hover:scale-110"
           />
         </div>
       </header>

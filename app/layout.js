@@ -32,13 +32,16 @@ export default function RootLayout({ children }) {
             {children}
             <Analytics />
           </main>
-          <footer className="w-full h-24 flex items-center justify-center border-t mt-8">
-            <p className="text-center">
+          <footer className="w-full py-8 flex items-center justify-center border-t mt-12 bg-card/50 backdrop-blur-sm">
+            <p className="text-center text-muted-foreground">
               Made by{" "}
-              <a className="underline" href="https://ilkeeren.dev">
+              <a 
+                className="underline text-primary hover:text-primary/80 transition-colors duration-200 font-medium" 
+                href="https://ilkeeren.dev"
+              >
                 Eren
               </a>{" "}
-              with ❤️
+              with <span className="text-primary">❤️</span>
             </p>
           </footer>
         </body>
