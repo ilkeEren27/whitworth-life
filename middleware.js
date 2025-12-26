@@ -4,6 +4,8 @@ import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 const isPublicRoute = createRouteMatcher([
   "/map(.*)",
   "/events(.*)", // Allow all events routes including editor
+  "/campus-guide(.*)", // Campus guide pages
+  "/social(.*)", // Social/Instagram feed pages
   "/log-in(.*)",
   "/sign-up(.*)",
   "/forgot-password(.*)",

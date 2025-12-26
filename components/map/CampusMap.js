@@ -274,7 +274,7 @@ export default function CampusMap() {
               />
               <CircleF
                 center={userPos}
-                radius={15}
+                radius={accuracy || 15} // Use GPS accuracy for radius, fallback to 15m
                 options={{
                   fillColor: isDarkMode ? "#d96b6a" : "#bf4342", // Primary color - theme aware
                   fillOpacity: 0.15,
