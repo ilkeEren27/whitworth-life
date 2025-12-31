@@ -12,6 +12,7 @@ import { categories, places, colors } from "@/data/places";
 import { pinIcon } from "@/lib/mapIcons";
 import { Button } from "../ui/button";
 import { useSearchParams } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 const MAP_CENTER = { lat: 47.7531493070487, lng: -117.41635063409184 };
 const DEFAULT_ZOOM = 17;
@@ -27,6 +28,7 @@ const MAP_LABEL_HIDE_STYLES = [
 ];
 
 export default function CampusMap() {
+  const t = useTranslations("map");
   const [selectedCats, setSelectedCats] = useState(new Set(categories));
   const [logic, setLogic] = useState("ANY");
   const [activeId, setActiveId] = useState(null);
@@ -49,14 +51,15 @@ export default function CampusMap() {
   const [showResults, setShowResults] = useState(false);
   const searchRef = useRef(null);
 
-  // Filter places based on search query
+  // Filter places based on search query (matches against translated names)
   const searchResults = useMemo(() => {
     if (!searchQuery.trim()) return [];
     const query = searchQuery.toLowerCase();
-    return places.filter((place) =>
-      place.name.toLowerCase().includes(query)
-    ).slice(0, 8); // Limit to 8 results
-  }, [searchQuery]);
+    return places.filter((place) => {
+      const translatedName = t.raw(`places.${place.id}`)?.name || place.name;
+      return translatedName.toLowerCase().includes(query);
+    }).slice(0, 8); // Limit to 8 results
+  }, [searchQuery, t]);
 
   // Handle clicking on a search result
   const handleSelectPlace = useCallback((place) => {
@@ -173,7 +176,7 @@ export default function CampusMap() {
         <div className="relative">
           <input
             type="text"
-            placeholder="Search for a location..."
+            placeholder={t("searchPlaceholder")}
             value={searchQuery}
             onChange={(e) => {
               setSearchQuery(e.target.value);
@@ -206,7 +209,7 @@ export default function CampusMap() {
                 onClick={() => handleSelectPlace(place)}
                 className="w-full px-4 py-3 text-left hover:bg-accent transition-colors flex items-center justify-between gap-2"
               >
-                <span className="font-medium text-foreground">{place.name}</span>
+                <span className="font-medium text-foreground">{t.raw(`places.${place.id}`)?.name || place.name}</span>
                 <div className="flex gap-1.5 flex-wrap justify-end">
                   {place.categories.slice(0, 2).map((cat) => (
                     <span
@@ -217,7 +220,7 @@ export default function CampusMap() {
                         color: colors[cat] || "var(--foreground)",
                       }}
                     >
-                      {cat}
+                      {t(`categories.${cat}`)}
                     </span>
                   ))}
                 </div>
@@ -228,7 +231,7 @@ export default function CampusMap() {
         {/* No results message */}
         {showResults && searchQuery.trim() && searchResults.length === 0 && (
           <div className="absolute left-2 right-2 sm:left-3 sm:right-3 top-full mt-1 bg-card border border-border rounded-xl shadow-lg z-50 px-4 py-3 text-muted-foreground text-sm">
-            No locations found for &ldquo;{searchQuery}&rdquo;
+            {t("noResults")} &ldquo;{searchQuery}&rdquo;
           </div>
         )}
       </div>
@@ -238,7 +241,7 @@ export default function CampusMap() {
         {categories.map((c) => {
           const on = selectedCats.has(c);
           return (
-            <Button
+              <Button
               key={c}
               onClick={() => toggleCat(c)}
               className={`px-2.5 py-1 rounded-2xl border text-xs sm:text-sm transition
@@ -247,9 +250,9 @@ export default function CampusMap() {
                     ? "bg-primary text-primary-foreground border-primary dark:border-primary"
                     : "bg-card text-foreground hover:bg-accent hover:text-accent-foreground border-border dark:bg-card dark:text-foreground dark:border-border"
                 }`}
-              title={c}
+              title={t(`categories.${c}`)}
             >
-              {c}
+              {t(`categories.${c}`)}
             </Button>
           );
         })}
@@ -257,20 +260,20 @@ export default function CampusMap() {
           onClick={() => setSelectedCats(new Set(categories))}
           className="ml-auto px-2.5 py-1 rounded-2xl border text-xs sm:text-sm bg-card text-foreground hover:bg-accent hover:text-accent-foreground border-border dark:bg-card dark:text-foreground dark:border-border"
         >
-          All
+          {t("allButton")}
         </Button>
         <Button
           onClick={() => setSelectedCats(new Set())}
           className="px-2.5 py-1 rounded-2xl border text-xs sm:text-sm bg-card text-foreground hover:bg-accent hover:text-accent-foreground border-border dark:bg-card dark:text-foreground dark:border-border"
         >
-          None
+          {t("noneButton")}
         </Button>
       </div>
 
       {/* ANY / ALL logic toggle */}
       <div className="px-2 sm:px-3 py-2 flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3">
         <span className="text-xs sm:text-sm text-muted-foreground">
-          Filter logic:
+          {t("filterLogic")}
         </span>
         <div className="flex gap-2">
           <Button
@@ -281,7 +284,7 @@ export default function CampusMap() {
                 : "bg-card text-foreground hover:bg-accent hover:text-accent-foreground border-border dark:bg-card dark:text-foreground dark:border-border"
             }`}
           >
-            Any (Match at least one)
+            {t("any")}
           </Button>
           <Button
             onClick={() => setLogic("ALL")}
@@ -291,7 +294,7 @@ export default function CampusMap() {
                 : "bg-card text-foreground hover:bg-accent hover:text-accent-foreground border-border dark:bg-card dark:text-foreground dark:border-border"
             }`}
           >
-            All (Must match all)
+            {t("all")}
           </Button>
         </div>
       </div>
@@ -330,7 +333,7 @@ export default function CampusMap() {
                 options={{ pixelOffset: new google.maps.Size(0, -8) }}
               >
                 <div className="space-y-2 text-foreground">
-                  <div className="font-bold text-card-foreground">{p.name}</div>
+                  <div className="font-bold text-card-foreground">{t.raw(`places.${p.id}`)?.name || p.name}</div>
                   <div className="flex gap-2 flex-wrap">
                     {p.categories.map((c) => (
                       <span
@@ -345,13 +348,13 @@ export default function CampusMap() {
                             : undefined
                         }
                       >
-                        {c}
+                        {t(`categories.${c}`)}
                       </span>
                     ))}
                   </div>
-                  {p.desc && (
+                  {(t.raw(`places.${p.id}`)?.desc || p.desc) && (
                     <div className="text-sm text-card-foreground font-normal">
-                      {p.desc}
+                      {t.raw(`places.${p.id}`)?.desc || p.desc}
                     </div>
                   )}
                 </div>

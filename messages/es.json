@@ -33,7 +33,178 @@
     "any": "Cualquiera (Coincidir al menos uno)",
     "all": "Todos (Deben coincidir todos)",
     "allButton": "Todos",
-    "noneButton": "Ninguno"
+    "noneButton": "Ninguno",
+    "categories": {
+      "Food & Drink": "Comida y Bebida",
+      "Faculty": "Facultad",
+      "Study": "Estudio",
+      "Athletics": "Deportes",
+      "Residence": "Residencia",
+      "Health": "Salud",
+      "Admin": "Administración"
+    },
+    "places": {
+      "hub": {
+        "name": "HUB",
+        "desc": "El corazón de Whitworth, el HUB es un lugar donde los estudiantes pueden venir a relajarse, estudiar y socializar."
+      },
+      "library": {
+        "name": "Biblioteca",
+        "desc": "La Biblioteca de Whitworth, aquí puedes encontrar todos los libros que necesitas, encontrar un lugar tranquilo para estudiar, o simplemente relajarte y leer un libro. También puedes usar impresoras a color o computadoras aquí."
+      },
+      "loop": {
+        "name": "Loop",
+        "desc": "Área central del campus."
+      },
+      "soccer": {
+        "name": "Campo de Fútbol",
+        "desc": "Campo de Fútbol de Whitworth, generalmente usado para partidos y prácticas de fútbol."
+      },
+      "omache": {
+        "name": "Campo Omache",
+        "desc": "Campo Omache, segundo campo de fútbol de Whitworth, generalmente usado para partidos y prácticas de fútbol."
+      },
+      "marks": {
+        "name": "Campo Marks",
+        "desc": "Campo Marks, generalmente usado para partidos y prácticas de softbol/béisbol."
+      },
+      "pinebowl": {
+        "name": "Pine Bowl",
+        "desc": "Pine Bowl, campo de fútbol americano de Whitworth, generalmente usado para partidos y prácticas de fútbol americano."
+      },
+      "athleticscenter": {
+        "name": "Centro de Atletismo",
+        "desc": "Instalación principal de atletismo."
+      },
+      "gravesgym": {
+        "name": "Gimnasio Graves",
+        "desc": "Gimnasio del campus."
+      },
+      "fieldhouse": {
+        "name": "Fieldhouse",
+        "desc": "Fieldhouse, generalmente usado para partidos y prácticas de baloncesto y voleibol."
+      },
+      "aquatics": {
+        "name": "Centro Acuático",
+        "desc": "Centro Acuático, generalmente usado para partidos y prácticas de natación y clavados."
+      },
+      "tennis": {
+        "name": "Burbuja de Tenis",
+        "desc": "Burbuja de Tenis, generalmente usada para partidos y prácticas de tenis."
+      },
+      "urec": {
+        "name": "U-Rec",
+        "desc": "U-Rec, gimnasio principal de Whitworth, tiene 3 canchas usadas para baloncesto, voleibol y otros juegos/prácticas y también tiene mucho equipo de gimnasio para uso de los estudiantes."
+      },
+      "mcmillan": {
+        "name": "Residencia McMillan",
+        "desc": "Residencia McMillan, generalmente usada para residencia y socialización."
+      },
+      "ballard": {
+        "name": "Residencia Ballard",
+        "desc": "Residencia Ballard, generalmente usada para residencia y socialización."
+      },
+      "chapel": {
+        "name": "Capilla",
+        "desc": "Capilla, generalmente usada para adoración y socialización."
+      },
+      "warren": {
+        "name": "Residencia Warren",
+        "desc": "Residencia Warren, generalmente usada para residencia y socialización."
+      },
+      "arend": {
+        "name": "Residencia Arend",
+        "desc": "Residencia Arend, generalmente usada para residencia y socialización."
+      },
+      "baldwinjenkins": {
+        "name": "Residencia Baldwin Jenkins",
+        "desc": "Residencia Baldwin Jenkins, generalmente usada para residencia y socialización."
+      },
+      "stewart": {
+        "name": "Residencia Stewart",
+        "desc": "Residencia Stewart, generalmente usada para residencia y socialización."
+      },
+      "village": {
+        "name": "Village",
+        "desc": "Village, generalmente usado para residencia y socialización."
+      },
+      "oliver": {
+        "name": "Residencia Oliver",
+        "desc": "Residencia Oliver, generalmente usada para residencia y socialización."
+      },
+      "duvall": {
+        "name": "Residencia Duvall",
+        "desc": "Residencia Duvall, generalmente usada para residencia y socialización."
+      },
+      "boppell": {
+        "name": "Residencia Boppell",
+        "desc": "Residencia Boppell, generalmente usada para residencia y socialización."
+      },
+      "dixon": {
+        "name": "Edificio Dixon",
+        "desc": "Edificio académico con espacios de estudio."
+      },
+      "mceachran": {
+        "name": "Edificio McEachran",
+        "desc": "Edificio académico."
+      },
+      "cowles": {
+        "name": "Auditorio Cowles",
+        "desc": "Auditorio principal para eventos y presentaciones."
+      },
+      "cowlescenter": {
+        "name": "Centro de Música Cowles",
+        "desc": "Edificio del departamento de música."
+      },
+      "westminster": {
+        "name": "Edificio Westminster",
+        "desc": "Edificio académico con espacios de estudio."
+      },
+      "liedcenter": {
+        "name": "Centro Lied",
+        "desc": "Instalación académica."
+      },
+      "dornsife": {
+        "name": "Edificio de Ciencias de la Salud Dornsife",
+        "desc": "Edificio académico de ciencias de la salud."
+      },
+      "weyerhaeuser": {
+        "name": "Edificio Weyerhaeuser",
+        "desc": "Edificio académico con espacios de estudio."
+      },
+      "lindaman": {
+        "name": "Centro Lindaman",
+        "desc": "Instalación académica y administrativa."
+      },
+      "schumacher": {
+        "name": "Edificio Schumacher",
+        "desc": "Eventos, conferencias, salas administrativas."
+      },
+      "robinson": {
+        "name": "Edificio de Ciencias Robinson",
+        "desc": "Eventos, conferencias, salas administrativas."
+      },
+      "ericjohnston": {
+        "name": "Centro de Ciencias Eric Johnston",
+        "desc": "Eventos, conferencias, salas administrativas."
+      },
+      "hendrick": {
+        "name": "Edificio Hendrick",
+        "desc": "Edificio académico y administrativo."
+      },
+      "admissions": {
+        "name": "Admisiones de Whitworth",
+        "desc": "Oficina de admisiones para estudiantes prospectivos."
+      },
+      "bookstore": {
+        "name": "Librería Whitworth y Pines Cafe",
+        "desc": "Librería del campus y cafetería."
+      },
+      "hawthorne": {
+        "name": "Edificio Hawthorne",
+        "desc": "Edificio académico y administrativo."
+      }
+    }
   },
   "events": {
     "createNew": "Crear Nuevo Evento",
@@ -44,7 +215,58 @@
   },
   "campusGuide": {
     "title": "Guía del Campus",
-    "description": "Descubre ubicaciones esenciales y recursos en el campus de Whitworth. Encuentra espacios de estudio, opciones de comida, instalaciones deportivas y más para ayudarte a navegar la vida universitaria."
+    "description": "Descubre ubicaciones esenciales y recursos en el campus de Whitworth. Encuentra espacios de estudio, opciones de comida, instalaciones deportivas y más para ayudarte a navegar la vida universitaria.",
+    "cards": {
+      "whatToBring": {
+        "title": "Qué Traer",
+        "description": "Qué traer a Whitworth",
+        "content": "Nos alegra que seas parte de nuestra comunidad. A continuación encontrarás listas de artículos que necesitarás traer a Whitworth junto con artículos que podrías querer traer cuando llegues al campus. Además, lee Lo que se Proporciona para información sobre lo que ya está en tu habitación y Qué No Traer, que detalla los artículos no permitidos en las residencias.",
+        "buttonText": "Más Información"
+      },
+      "healthServices": {
+        "title": "Servicios de Salud",
+        "description": "Recursos de salud y bienestar del campus",
+        "content": "Accede a servicios de salud, consejería y programas de bienestar. Ubicados en lugares convenientes del campus para apoyar tu bienestar físico y mental.",
+        "buttonText": "Mostrar Ubicaciones",
+        "secondButtonText": "Más Información"
+      },
+      "vehicleParking": {
+        "title": "Registro de Vehículos y Estacionamiento",
+        "description": "Un campus debe ser un 'parque para la mente' donde los espacios verdes se aprecian y la belleza natural se mantiene.",
+        "content": "Todos los vehículos personales estacionados en el campus deben estar registrados con los servicios de seguridad. El personal docente, administrativo y los estudiantes deben mostrar un permiso de estacionamiento válido en su vehículo personal (incluyendo motocicletas) en todo momento.",
+        "buttonText": "Más Información"
+      },
+      "dining": {
+        "title": "Servicios de Comedor (Sodexo)",
+        "description": "Planes de comidas, menús y horarios",
+        "content": "Explora las opciones de comedor proporcionadas por Sodexo, incluyendo menús diarios, información sobre planes de comidas, datos nutricionales y horarios del comedor. Descubre qué se sirve hoy en el HUB y otras ubicaciones del campus.",
+        "buttonText": "Ver Menú"
+      },
+      "foodDrink": {
+        "title": "Comida y Bebida",
+        "description": "Opciones de restaurantes y cafeterías en el campus",
+        "content": "Explora varias ubicaciones de comida incluyendo el HUB, Pines Cafe y otras cafeterías del campus. Encuentra planes de comidas, opciones para llevar y cafeterías.",
+        "buttonText": "Mostrar Ubicaciones"
+      },
+      "hub": {
+        "title": "HUB",
+        "description": "Centro para comer, estudiar y socializar",
+        "content": "El HUB es el corazón de la vida en el campus, ofreciendo múltiples opciones de comida, espacios de estudio y áreas de reunión. Perfecto para comer entre clases o colaborar en proyectos grupales.",
+        "buttonText": "Ver en el Mapa"
+      },
+      "studySpaces": {
+        "title": "Espacios de Estudio",
+        "description": "Áreas tranquilas y bibliotecas para estudiar",
+        "content": "Encuentra el lugar de estudio perfecto en el campus. Desde la biblioteca principal hasta rincones tranquilos en edificios académicos, descubre espacios que se adapten a tu estilo de estudio.",
+        "buttonText": "Mostrar Ubicaciones"
+      },
+      "library": {
+        "title": "Biblioteca",
+        "description": "Biblioteca principal del campus con amplios recursos",
+        "content": "Accede a libros, bases de datos de investigación, salas de estudio y laboratorios de computación. La biblioteca ofrece tanto áreas de estudio tranquilas como espacios colaborativos para trabajo en grupo.",
+        "buttonText": "Ver en el Mapa"
+      }
+    }
   },
   "social": {
     "title": "Feed de Instagram",

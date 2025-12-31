@@ -35,47 +35,50 @@ export default function CampusGuidePage() {
 
           {/* Cards Grid - Responsive: 4 columns on desktop, 1 on mobile */}
           <div className="grid justify-center w-full grid-cols-1 md:grid-cols-4 gap-4 mt-8">
-            {guideCards.map((card) => (
-              <Card key={card.title} className="animate-fade-in flex flex-col">
-                <CardHeader>
-                  <CardTitle className="text-xl">{card.title}</CardTitle>
-                  <CardDescription className="text-base">
-                    {card.description}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="flex-grow">
-                  <p className="text-sm text-muted-foreground">
-                    {card.content}
-                  </p>
-                </CardContent>
-                <CardFooter className={card.secondButtonText ? "flex gap-2" : ""}>
-                  <Button asChild variant="outline" className={card.secondButtonText ? "flex-1" : "w-full"}>
-                    <Link
-                      href={card.href}
-                      {...(card.href.startsWith("http") && {
-                        target: "_blank",
-                        rel: "noopener noreferrer",
-                      })}
-                    >
-                      {card.buttonText}
-                    </Link>
-                  </Button>
-                  {card.secondButtonText && card.secondHref && (
-                    <Button asChild variant="outline" className="flex-1">
+            {guideCards.map((card) => {
+              const cardT = t.raw(`cards.${card.key}`);
+              return (
+                <Card key={card.key} className="animate-fade-in flex flex-col">
+                  <CardHeader>
+                    <CardTitle className="text-xl">{cardT.title}</CardTitle>
+                    <CardDescription className="text-base">
+                      {cardT.description}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="flex-grow">
+                    <p className="text-sm text-muted-foreground">
+                      {cardT.content}
+                    </p>
+                  </CardContent>
+                  <CardFooter className="flex flex-col gap-2">
+                    <Button asChild variant="outline" className="w-full text-sm">
                       <Link
-                        href={card.secondHref}
-                        {...(card.secondHref.startsWith("http") && {
+                        href={card.href}
+                        {...(card.href.startsWith("http") && {
                           target: "_blank",
                           rel: "noopener noreferrer",
                         })}
                       >
-                        {card.secondButtonText}
+                        {cardT.buttonText}
                       </Link>
                     </Button>
-                  )}
-                </CardFooter>
-              </Card>
-            ))}
+                    {cardT.secondButtonText && card.secondHref && (
+                      <Button asChild variant="outline" className="w-full text-sm">
+                        <Link
+                          href={card.secondHref}
+                          {...(card.secondHref.startsWith("http") && {
+                            target: "_blank",
+                            rel: "noopener noreferrer",
+                          })}
+                        >
+                          {cardT.secondButtonText}
+                        </Link>
+                      </Button>
+                    )}
+                  </CardFooter>
+                </Card>
+              );
+            })}
           </div>
         </div>
       </section>

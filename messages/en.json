@@ -33,7 +33,178 @@
     "any": "Any (Match at least one)",
     "all": "All (Must match all)",
     "allButton": "All",
-    "noneButton": "None"
+    "noneButton": "None",
+    "categories": {
+      "Food & Drink": "Food & Drink",
+      "Faculty": "Faculty",
+      "Study": "Study",
+      "Athletics": "Athletics",
+      "Residence": "Residence",
+      "Health": "Health",
+      "Admin": "Admin"
+    },
+    "places": {
+      "hub": {
+        "name": "HUB",
+        "desc": "Heart of Whitworth, HUB is a place where students can come to relax, study, and socialize."
+      },
+      "library": {
+        "name": "Library",
+        "desc": "Whitworth's Library, you can find all the books you need here, find some quiet spot to study, or just relax and read a book. Also you can use colored printers or computers here."
+      },
+      "loop": {
+        "name": "Loop",
+        "desc": "Central campus area."
+      },
+      "soccer": {
+        "name": "Soccer Field",
+        "desc": "Soccer Field of Whitworth, usually used for soccer games and practices."
+      },
+      "omache": {
+        "name": "Omache Field",
+        "desc": "Omache Field, second soccer field of Whitworth, usually used for soccer games and practices."
+      },
+      "marks": {
+        "name": "Marks Field",
+        "desc": "Marks Field, usually used for softball/baseball games and practices."
+      },
+      "pinebowl": {
+        "name": "Pine Bowl",
+        "desc": "Pine Bowl, football field of Whitworth, usually used for football games and practices."
+      },
+      "athleticscenter": {
+        "name": "Athletics Center",
+        "desc": "Main athletics facility."
+      },
+      "gravesgym": {
+        "name": "Graves GYM",
+        "desc": "Campus gymnasium."
+      },
+      "fieldhouse": {
+        "name": "Fieldhouse",
+        "desc": "Fieldhouse, usually used for basketball and volleyball games/practices."
+      },
+      "aquatics": {
+        "name": "Aquatics",
+        "desc": "Aquatics Center, usually used for swimming and diving games/practices."
+      },
+      "tennis": {
+        "name": "Tennis Bubble",
+        "desc": "Tennis Bubble, usually used for tennis games/practices."
+      },
+      "urec": {
+        "name": "U-Rec",
+        "desc": "U-Rec, main gym of Whitworth, has 3 fields used for basketball, volleyball, and other games/practices and also has bunch of gym equipment for students to use."
+      },
+      "mcmillan": {
+        "name": "McMillan Residence Hall",
+        "desc": "McMillan Residence Hall, usually used for residence and socializing."
+      },
+      "ballard": {
+        "name": "Ballard Residence Hall",
+        "desc": "Ballard Residence Hall, usually used for residence and socializing."
+      },
+      "chapel": {
+        "name": "Chapel",
+        "desc": "Chapel, usually used for worship and socializing."
+      },
+      "warren": {
+        "name": "Warren Residence Hall",
+        "desc": "Warren Residence Hall, usually used for residence and socializing."
+      },
+      "arend": {
+        "name": "Arend Residence Hall",
+        "desc": "Arend Residence Hall, usually used for residence and socializing."
+      },
+      "baldwinjenkins": {
+        "name": "Baldwin Jenkins Residence Hall",
+        "desc": "Baldwin Jenkins Residence Hall, usually used for residence and socializing."
+      },
+      "stewart": {
+        "name": "Stewart Residence Hall",
+        "desc": "Stewart Residence Hall, usually used for residence and socializing."
+      },
+      "village": {
+        "name": "Village",
+        "desc": "Village, usually used for residence and socializing."
+      },
+      "oliver": {
+        "name": "Oliver Residence Hall",
+        "desc": "Oliver Residence Hall, usually used for residence and socializing."
+      },
+      "duvall": {
+        "name": "Duvall Residence Hall",
+        "desc": "Duvall Residence Hall, usually used for residence and socializing."
+      },
+      "boppell": {
+        "name": "Boppell Residence Hall",
+        "desc": "Boppell Residence Hall, usually used for residence and socializing."
+      },
+      "dixon": {
+        "name": "Dixon Hall",
+        "desc": "Academic building with study spaces."
+      },
+      "mceachran": {
+        "name": "McEachran Hall",
+        "desc": "Academic building."
+      },
+      "cowles": {
+        "name": "Cowles Auditorium",
+        "desc": "Main auditorium for events and performances."
+      },
+      "cowlescenter": {
+        "name": "Cowles Music Center",
+        "desc": "Music department building."
+      },
+      "westminster": {
+        "name": "Westminster Hall",
+        "desc": "Academic building with study spaces."
+      },
+      "liedcenter": {
+        "name": "Lied Center",
+        "desc": "Academic facility."
+      },
+      "dornsife": {
+        "name": "Dornsife Health Sciences Building",
+        "desc": "Health sciences academic building."
+      },
+      "weyerhaeuser": {
+        "name": "Weyerhaeuser Hall",
+        "desc": "Academic building with study spaces."
+      },
+      "lindaman": {
+        "name": "Lindaman Center",
+        "desc": "Academic and administrative facility."
+      },
+      "schumacher": {
+        "name": "Schumacher Hall",
+        "desc": "Events, lectures, admin rooms."
+      },
+      "robinson": {
+        "name": "Robinson Science Hall",
+        "desc": "Events, lectures, admin rooms."
+      },
+      "ericjohnston": {
+        "name": "Eric Johnston Science Center",
+        "desc": "Events, lectures, admin rooms."
+      },
+      "hendrick": {
+        "name": "Hendrick Hall",
+        "desc": "Academic and administrative building."
+      },
+      "admissions": {
+        "name": "Whitworth Admissions",
+        "desc": "Admissions office for prospective students."
+      },
+      "bookstore": {
+        "name": "Whitworth Bookstore & Pines Cafe",
+        "desc": "Campus bookstore and cafe."
+      },
+      "hawthorne": {
+        "name": "Hawthorne Hall",
+        "desc": "Academic and administrative building."
+      }
+    }
   },
   "events": {
     "createNew": "Create New Event",
@@ -44,7 +215,58 @@
   },
   "campusGuide": {
     "title": "Campus Guide",
-    "description": "Discover essential locations and resources around Whitworth campus. Find study spaces, dining options, athletic facilities, and more to help you navigate campus life."
+    "description": "Discover essential locations and resources around Whitworth campus. Find study spaces, dining options, athletic facilities, and more to help you navigate campus life.",
+    "cards": {
+      "whatToBring": {
+        "title": "What to Bring",
+        "description": "What to Bring to Whitworth",
+        "content": "We're glad you will be a part of our community. Following are lists of items you'll need to bring to Whitworth along with items you may want to bring with you when you arrive on campus. Additionally, please read What's Provided for information about what is already in your room and What Not to Bring, which details items not allowed in the residence halls.",
+        "buttonText": "Learn More"
+      },
+      "healthServices": {
+        "title": "Health Services",
+        "description": "Campus health and wellness resources",
+        "content": "Access health services, counseling, and wellness programs. Located in convenient campus locations to support your physical and mental well-being.",
+        "buttonText": "Show Locations",
+        "secondButtonText": "Learn More"
+      },
+      "vehicleParking": {
+        "title": "Vehicle Registration & Parking",
+        "description": "A campus should be a 'park for the mind' where green spaces are to be cherished and natural beauty maintained.",
+        "content": "All personal vehicles parked on campus must be registered with security services. Faculty, staff and students should display a valid parking permit on their personal vehicle (including motorcycles) at all times.",
+        "buttonText": "Learn More"
+      },
+      "dining": {
+        "title": "Campus Dining Services (Sodexo)",
+        "description": "Meal plans, menus, and dining hours",
+        "content": "Explore dining options provided by Sodexo, including daily menus, meal plan information, nutrition facts, and dining hall hours. Find what's being served today at the HUB and other campus locations.",
+        "buttonText": "View Menu"
+      },
+      "foodDrink": {
+        "title": "Food & Drink",
+        "description": "Dining options and cafes across campus",
+        "content": "Explore various dining locations including the HUB, Pines Cafe, and other campus eateries. Find meal plans, grab-and-go options, and coffee shops.",
+        "buttonText": "Show Locations"
+      },
+      "hub": {
+        "title": "HUB",
+        "description": "Central hub for dining, studying, and socializing",
+        "content": "The HUB is the heart of campus life, offering multiple dining options, study spaces, and meeting areas. Perfect for grabbing a meal between classes or collaborating on group projects.",
+        "buttonText": "View on Map"
+      },
+      "studySpaces": {
+        "title": "Study Spaces",
+        "description": "Quiet areas and libraries for focused studying",
+        "content": "Find the perfect study spot across campus. From the main library to quiet corners in academic buildings, discover spaces that match your study style and needs.",
+        "buttonText": "Show Locations"
+      },
+      "library": {
+        "title": "Library",
+        "description": "Main campus library with extensive resources",
+        "content": "Access books, research databases, study rooms, and computer labs. The library offers both quiet study areas and collaborative spaces for group work.",
+        "buttonText": "View on Map"
+      }
+    }
   },
   "social": {
     "title": "Instagram Feed",
