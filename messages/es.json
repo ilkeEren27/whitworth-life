@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "title": "PirateHub",
+    "description": "Centro de Campus para Piratas de Whitworth"
+  },
+  "nav": {
+    "map": "Mapa",
+    "events": "Eventos",
+    "guide": "Guía",
+    "social": "Social",
+    "signUp": "Registrarse",
+    "login": "Iniciar Sesión",
+    "adminPanel": "Panel de Admin",
+    "user": "Usuario",
+    "menu": "Menú",
+    "profile": "Perfil",
+    "campusGuide": "Guía del Campus"
+  },
+  "home": {
+    "welcome": "¡Bienvenido a PirateHub!",
+    "description": "He comenzado a construir esta aplicación de vida universitaria para estudiantes de Whitworth con un objetivo principal: crear una comunidad digital del campus, una plataforma donde los estudiantes puedan conectarse entre sí, descubrir eventos y navegar Whitworth con facilidad."
+  },
+  "footer": {
+    "madeBy": "Hecho por",
+    "with": "con"
+  },
+  "map": {
+    "loadError": "Error al cargar Google Maps.",
+    "loading": "Cargando mapa…",
+    "searchPlaceholder": "Buscar una ubicación...",
+    "noResults": "No se encontraron ubicaciones para",
+    "filterLogic": "Lógica de filtro:",
+    "any": "Cualquiera (Coincidir al menos uno)",
+    "all": "Todos (Deben coincidir todos)",
+    "allButton": "Todos",
+    "noneButton": "Ninguno"
+  },
+  "events": {
+    "createNew": "Crear Nuevo Evento",
+    "noEvents": "No hay eventos programados. ¡Crea el primer evento!",
+    "showLocation": "Mostrar Ubicación",
+    "hostedIn": "El evento se realizará en",
+    "postedBy": "Publicado por"
+  },
+  "campusGuide": {
+    "title": "Guía del Campus",
+    "description": "Descubre ubicaciones esenciales y recursos en el campus de Whitworth. Encuentra espacios de estudio, opciones de comida, instalaciones deportivas y más para ayudarte a navegar la vida universitaria."
+  },
+  "social": {
+    "title": "Feed de Instagram",
+    "description": "Últimas publicaciones de cuentas de Instagram de Whitworth"
+  },
+  "language": {
+    "switchTo": "English"
+  }
+}

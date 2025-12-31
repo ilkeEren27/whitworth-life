@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -23,7 +26,10 @@ export default function EventCard({
   date,
   organizer,
   organizerRole,
+  locale = "en",
 }) {
+  const t = useTranslations("events");
+  
   return (
     <Card className="animate-fade-in">
       <CardHeader>
@@ -32,8 +38,8 @@ export default function EventCard({
         </CardTitle>
         <CardDescription className="text-base">{description}</CardDescription>
         <CardAction>
-          <Link href={`/map?id=${locationId}`}>
-            <Button>Show Location</Button>
+          <Link href={`/${locale}/map?id=${locationId}`}>
+            <Button>{t("showLocation")}</Button>
           </Link>
         </CardAction>
       </CardHeader>
@@ -49,10 +55,10 @@ export default function EventCard({
             />
           </div>
         ) : null}
-        <p className="text-muted-foreground">Event will be hosted in <span className="font-medium text-foreground">{location}</span></p>
+        <p className="text-muted-foreground">{t("hostedIn")} <span className="font-medium text-foreground">{location}</span></p>
         {organizer && (
           <p className="text-sm text-muted-foreground mt-2 flex items-center gap-2">
-            Posted by <span className="font-medium text-foreground">{organizer}</span> <Badge variant="secondary">{organizerRole}</Badge>
+            {t("postedBy")} <span className="font-medium text-foreground">{organizer}</span> <Badge variant="secondary">{organizerRole}</Badge>
           </p>
         )}
       </CardContent>

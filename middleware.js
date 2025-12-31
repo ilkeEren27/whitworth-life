@@ -1,25 +1,37 @@
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
+import createMiddleware from "next-intl/middleware";
+import { routing } from "./i18n/routing";
+
+// Create next-intl middleware
+const intlMiddleware = createMiddleware(routing);
 
 // Add all *public* routes here (no auth required)
+// Note: Include locale prefix patterns
 const isPublicRoute = createRouteMatcher([
-  "/map(.*)",
-  "/events(.*)", // Allow all events routes including editor
-  "/campus-guide(.*)", // Campus guide pages
-  "/social(.*)", // Social/Instagram feed pages
-  "/log-in(.*)",
-  "/sign-up(.*)",
-  "/forgot-password(.*)",
-  "/reset-password(.*)",
-  "/verify-email(.*)",
+  "/:locale/map(.*)",
+  "/:locale/events(.*)", // Allow all events routes including editor
+  "/:locale/campus-guide(.*)", // Campus guide pages
+  "/:locale/social(.*)", // Social/Instagram feed pages
+  "/:locale/log-in(.*)",
+  "/:locale/sign-up(.*)",
+  "/:locale/forgot-password(.*)",
+  "/:locale/reset-password(.*)",
+  "/:locale/verify-email(.*)",
   "/api/webhooks/clerk", // <-- allow Clerk webhook
   "/api/webhooks/(.*)", // <-- (optional) any other webhooks you add
+  "/:locale",
   "/",
 ]);
 
 export default clerkMiddleware(async (auth, req) => {
+  // Run next-intl middleware first for locale handling
+  const intlResponse = intlMiddleware(req);
+  
   if (!isPublicRoute(req)) {
     await auth.protect();
   }
+  
+  return intlResponse;
 });
 
 export const config = {

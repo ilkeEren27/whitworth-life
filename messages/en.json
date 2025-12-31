@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "title": "PirateHub",
+    "description": "Campus Hub for Whitworth Pirates"
+  },
+  "nav": {
+    "map": "Map",
+    "events": "Events",
+    "guide": "Guide",
+    "social": "Social",
+    "signUp": "Sign Up",
+    "login": "Login",
+    "adminPanel": "Admin Panel",
+    "user": "User",
+    "menu": "Menu",
+    "profile": "Profile",
+    "campusGuide": "Campus Guide"
+  },
+  "home": {
+    "welcome": "Welcome to PirateHub!",
+    "description": "I've started building this campus-life app for Whitworth students with one main goal: create a digital campus community, a platform where students can connect with each other, discover events, and navigate Whitworth with ease."
+  },
+  "footer": {
+    "madeBy": "Made by",
+    "with": "with"
+  },
+  "map": {
+    "loadError": "Failed to load Google Maps.",
+    "loading": "Loading map…",
+    "searchPlaceholder": "Search for a location...",
+    "noResults": "No locations found for",
+    "filterLogic": "Filter logic:",
+    "any": "Any (Match at least one)",
+    "all": "All (Must match all)",
+    "allButton": "All",
+    "noneButton": "None"
+  },
+  "events": {
+    "createNew": "Create New Event",
+    "noEvents": "No events scheduled. Create the first event!",
+    "showLocation": "Show Location",
+    "hostedIn": "Event will be hosted in",
+    "postedBy": "Posted by"
+  },
+  "campusGuide": {
+    "title": "Campus Guide",
+    "description": "Discover essential locations and resources around Whitworth campus. Find study spaces, dining options, athletic facilities, and more to help you navigate campus life."
+  },
+  "social": {
+    "title": "Instagram Feed",
+    "description": "Latest posts from Whitworth Instagram accounts"
+  },
+  "language": {
+    "switchTo": "Español"
+  }
+}
