@@ -43,13 +43,13 @@ export default function ThemeToggle() {
   if (!mounted) return null;
 
   return (
-    <Toggle
+    <button
       aria-label="Toggle dark mode"
-      pressed={isDark}
-      onPressedChange={onPressedChange}
+      onClick={() => onPressedChange(!isDark)}
       title={isDark ? "Switch to light mode" : "Switch to dark mode"}
+      className="h-10 w-10 flex items-center justify-center rounded-lg bg-gradient-to-br from-primary/10 to-accent/10 border border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-md hover:shadow-primary/10 focus:outline-none focus:ring-2 focus:ring-primary/30"
     >
-      {isDark ? <Moon /> : <Sun />}
-    </Toggle>
+      {isDark ? <Moon className="h-5 w-5 text-primary" /> : <Sun className="h-5 w-5 text-accent" />}
+    </button>
   );
 }

@@ -34,7 +34,7 @@ export default function CampusGuidePage() {
           </p>
 
           {/* Cards Grid - Responsive: 4 columns on desktop, 1 on mobile */}
-          <div className="grid justify-center w-full grid-cols-1 md:grid-cols-4 gap-4 mt-8">
+          <div className="grid justify-center w-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
             {guideCards.map((card) => {
               const cardT = t.raw(`cards.${card.key}`);
               return (

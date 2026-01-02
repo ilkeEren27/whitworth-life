@@ -14,7 +14,8 @@
     "user": "Usuario",
     "menu": "Menú",
     "profile": "Perfil",
-    "campusGuide": "Guía del Campus"
+    "campusGuide": "Guía del Campus",
+    "signOut": "Cerrar Sesión"
   },
   "home": {
     "welcome": "¡Bienvenido a PirateHub!",

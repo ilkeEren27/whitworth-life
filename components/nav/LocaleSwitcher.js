@@ -28,21 +28,24 @@ export default function LocaleSwitcher() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="icon" className="h-9 w-9">
-          <Globe className="h-5 w-5" />
+        <button className="h-10 w-10 flex items-center justify-center rounded-lg bg-gradient-to-br from-primary/10 to-accent/10 border border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-md hover:shadow-primary/10 focus:outline-none focus:ring-2 focus:ring-primary/30">
+          <Globe className="h-5 w-5 text-primary" />
           <span className="sr-only">Switch language</span>
-        </Button>
+        </button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="bg-card border shadow-lg rounded-lg">
+      <DropdownMenuContent 
+        align="end" 
+        className="w-40 p-1 bg-card/95 backdrop-blur-md border border-primary/20 shadow-xl shadow-primary/5 rounded-xl overflow-hidden"
+      >
         <DropdownMenuItem
           onClick={() => switchLocale('en')}
-          className={locale === 'en' ? 'bg-accent' : ''}
+          className={`cursor-pointer rounded-lg px-3 py-2 transition-all duration-200 hover:bg-gradient-to-r hover:from-primary/10 hover:to-accent/10 ${locale === 'en' ? 'bg-primary/10 font-medium' : ''}`}
         >
           🇺🇸 English
         </DropdownMenuItem>
         <DropdownMenuItem
           onClick={() => switchLocale('es')}
-          className={locale === 'es' ? 'bg-accent' : ''}
+          className={`cursor-pointer rounded-lg px-3 py-2 transition-all duration-200 hover:bg-gradient-to-r hover:from-primary/10 hover:to-accent/10 ${locale === 'es' ? 'bg-primary/10 font-medium' : ''}`}
         >
           🇪🇸 Español
         </DropdownMenuItem>

@@ -14,7 +14,8 @@
     "user": "User",
     "menu": "Menu",
     "profile": "Profile",
-    "campusGuide": "Campus Guide"
+    "campusGuide": "Campus Guide",
+    "signOut": "Sign Out"
   },
   "home": {
     "welcome": "Welcome to PirateHub!",

@@ -106,20 +106,9 @@ export default async function EventsPage({ params }) {
           </Link>
         )}
       </div>
-      <section className="hidden md:grid justify-center mt-16 mx-10 grid-cols-4 gap-4">
+      <section className="grid justify-center mt-16 mx-4 sm:mx-10 grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
         {transformedEvents.length === 0 ? (
-          <p className="col-span-4 text-center text-lg text-muted-foreground">
-            {t("noEvents")}
-          </p>
-        ) : (
-          transformedEvents
-            .toReversed()
-            .map((event) => <EventCard key={event.id} {...event} locale={locale} />)
-        )}
-      </section>
-      <section className="grid md:hidden justify-center mt-16 mx-10 grid-cols-1 gap-4">
-        {transformedEvents.length === 0 ? (
-          <p className="col-span-1 text-center text-lg text-muted-foreground">
+          <p className="col-span-full text-center text-lg text-muted-foreground">
             {t("noEvents")}
           </p>
         ) : (
